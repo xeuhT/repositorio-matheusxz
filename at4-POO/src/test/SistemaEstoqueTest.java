@@ -74,13 +74,13 @@ public class SistemaEstoqueTest {
     public void testExportarRelatorioHorizontal() {
         sistema.login("admin", "admin123");
         sistema.cadastrarProduto("Produto1", "Descrição Produto1", 100, 10.0, LocalDate.of(2024, 12, 31));
-        sistema.exportarRelatorioHorizontal(); // Aqui, você deve verificar a saída no console
+        sistema.exportarRelatorioHorizontal();
     }
 
     @Test
     public void testExportarRelatorioVertical() {
         sistema.login("admin", "admin123");
         sistema.cadastrarProduto("Produto1", "Descrição Produto1", 100, 10.0, LocalDate.of(2024, 12, 31));
-        sistema.exportarRelatorioVertical(); // Aqui, você deve verificar a saída no console
+        sistema.exportarRelatorioVertical(); 
     }
 }
