@@ -1,18 +1,36 @@
-## Getting Started
+Problema 1: Qual classe deve ser responsável por calcular o valor total do pedido, incluindo impostos e frete?
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Padrão GRASP Utilizado: Information Expert
+A classe Pedido é a mais adequada para calcular o valor total, pois ela conhece os itens do pedido e seus preços.
+Problema 2: Qual classe deve ser responsável por criar objetos da classe Produto?
 
-## Folder Structure
+Padrão GRASP Utilizado: Creator
+A criação de objetos da classe Produto é responsabilidade do ControladorCheckout, que orquestra o processo de checkout.
+Problema 3: Qual classe deve ser responsável por orquestrar o processo de checkout, desde a validação do pedido até a geração da nota fiscal?
 
-The workspace contains two folders by default, where:
+Padrão GRASP Utilizado: Controller
+A classe ControladorCheckout é responsável por orquestrar o processo de checkout.
+Problema 4: Como evitar que a classe Pedido dependa diretamente de classes específicas de pagamento, como CartaoCredito ou BoletoBancario?
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Padrão GRASP Utilizado: Low Coupling
+O uso da interface Pagamento permite que Pedido utilize diferentes métodos de pagamento sem depender diretamente de classes específicas.
+Problema 5: A classe Produto deve armazenar informações de histórico de preços?
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Padrão GRASP Utilizado: Information Expert
+A classe Produto armazena o histórico de preços utilizando a classe HistoricoPreco.
+Problema 6: Como permitir que diferentes tipos de produtos (livros, eletrodomésticos etc.) sejam tratados de forma uniforme no processo de checkout?
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Padrão GRASP Utilizado: Polymorphism
+A classe Produto pode ser especializada em subclasses para diferentes tipos de produtos, todos tratados uniformemente pelo Pedido.
+Problema 7: Como gerar um identificador único para cada pedido?
 
-## Dependency Management
+Padrão GRASP Utilizado: Creator
+A classe GeradorID é responsável por criar identificadores únicos.
+Problema 8: Como evitar que a classe Pedido dependa diretamente do sistema de notificação por e-mail para enviar avisos ao cliente?
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Padrão GRASP Utilizado: Indirection
+A classe ServicoNotificacao gerencia o envio de notificações, desacoplando Pedido do sistema de notificação.
+Problema 9: Como proteger o sistema contra as mudanças frequentes nos cálculos de impostos que podem variar de acordo com a região, produto e outras características?
+
+Padrão GRASP Utilizado: Protected Variations
+O uso da interface EstrategiaImposto permite a troca fácil da estratégia de cálculo de impostos.
