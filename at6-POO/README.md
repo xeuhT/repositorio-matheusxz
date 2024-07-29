@@ -1,4 +1,5 @@
 Problema 1: Qual classe deve ser responsável por calcular o valor total do pedido, incluindo impostos e frete?
+
 Padrão GRASP Utilizado: Information Expert
 A classe Pedido é a mais adequada para calcular o valor total, pois ela conhece os itens do pedido e seus preços.
 
